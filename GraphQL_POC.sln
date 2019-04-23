@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{9E0E6E53-5234-46E5-B895-5232DD44C7E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL.Tests", "DAL.Tests\DAL.Tests.csproj", "{A9E80FC3-C1D9-464F-8F70-41A7C6D228D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLSample", "GraphQL\GraphQLSample.csproj", "{AFE250D8-6EF5-4051-B5AF-EB3408296E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E0E6E53-5234-46E5-B895-5232DD44C7E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E0E6E53-5234-46E5-B895-5232DD44C7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E0E6E53-5234-46E5-B895-5232DD44C7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E0E6E53-5234-46E5-B895-5232DD44C7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E80FC3-C1D9-464F-8F70-41A7C6D228D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E80FC3-C1D9-464F-8F70-41A7C6D228D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E80FC3-C1D9-464F-8F70-41A7C6D228D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E80FC3-C1D9-464F-8F70-41A7C6D228D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE250D8-6EF5-4051-B5AF-EB3408296E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE250D8-6EF5-4051-B5AF-EB3408296E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE250D8-6EF5-4051-B5AF-EB3408296E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE250D8-6EF5-4051-B5AF-EB3408296E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2BCFD12F-3B71-4AF3-B237-DC66BA402AE5}
+	EndGlobalSection
+EndGlobal
