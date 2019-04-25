@@ -9,12 +9,9 @@ using GraphQL.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace GraphQLWebAPI
@@ -32,6 +29,10 @@ namespace GraphQLWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<IDocumentWriter, DocumentWriter>();
+            services.AddSingleton<IDocumentExecuter, DocumentExecuter>();
+            services.AddSingleton<HelloWorld>();
+            services.AddSingleton<ISchema, HelloWorldSchema>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,35 +46,14 @@ namespace GraphQLWebAPI
             {
                 app.UseHsts();
             }
-
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseMvc();
 
 
-            app.Run(async (context) =>
-            {
-                if (context.Request.Path.StartsWithSegments("/api/graphql")
-               && string.Equals(context.Request.Method, "POST", StringComparison.OrdinalIgnoreCase))
-                {
-                    string body;
-                    using (var streamReader = new StreamReader(context.Request.Body))
-                    {
-                        body = await streamReader.ReadToEndAsync();
+            app.UseMiddleware<GraphQLMiddleware>();
 
-                        var request = JsonConvert.DeserializeObject<GraphQLRequest>(body);
-                        var schema = new Schema { Query = new HelloWorld() };
-
-                        var result = await new DocumentExecuter().ExecuteAsync(doc =>
-                        {
-                            doc.Schema = schema;
-                            doc.Query = request.Query;
-                        }).ConfigureAwait(false);
-
-                        var json = new DocumentWriter(indent: true).Write(result);
-                        await context.Response.WriteAsync(json);
-                    }
-                }
-            });
         }
     }
 }
