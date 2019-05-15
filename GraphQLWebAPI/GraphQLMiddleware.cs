@@ -27,6 +27,7 @@ namespace GraphQLWebAPI
             _schema = schema;
         }
 
+        [Obsolete]
         public async Task InvokeAsync(HttpContext httpContext)
         {
             if (httpContext.Request.Path.StartsWithSegments("/api/graphql") && string.Equals(httpContext.Request.Method, "POST", StringComparison.OrdinalIgnoreCase))
