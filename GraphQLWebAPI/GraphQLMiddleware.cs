@@ -45,7 +45,7 @@ namespace GraphQLWebAPI
                         doc.Query = request.Query;
                     }).ConfigureAwait(false);
 
-                    var json = _writer.Write(result);
+                    var json = _writer.WriteToStringAsync(result).Result;
                     await httpContext.Response.WriteAsync(json);
                 }
             }

@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraphQL" Version="2.4.0" />
+    <PackageReference Include="GraphQL" Version="3.0.0-preview-1141" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
